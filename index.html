@@ -3,183 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JULEE | Insight & Journal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>JULEE's Insight & Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #faf9f6; /* 고급스러운 미색(웜 화이트) */
-            --card-bg: #ffffff;
-            --text-main: #1c1917;
-            --text-sub: #57534e;
-            --primary: #1e3a8a; /* 딥 네이비 */
-            --accent: #d97706; /* 포인트 골드/브라운 */
-            --border-color: #e7e5e4;
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #a0a0a0;
+            --accent: #ffffff;
+            --border-color: #333333;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Pretendard', sans-serif;
-            background-color: var(--bg-color);
+            background-color: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.8;
-            padding: 3rem 1rem;
+            padding: 4rem 1.5rem;
         }
 
         .wrapper {
-            max-width: 960px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        /* 매거진 스타일 헤더 */
+        /* Massively 스타일 헤더 */
         header {
             text-align: center;
-            padding: 4rem 1rem 3rem 1rem;
-            border-bottom: 2px solid var(--text-main);
+            padding: 4rem 2rem;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
             margin-bottom: 3rem;
-        }
-
-        .magazine-tag {
-            font-family: 'Noto Serif KR', serif;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: block;
+            border-radius: 4px;
         }
 
         header h1 {
-            font-family: 'Noto Serif KR', serif;
+            font-family: 'Merriweather', serif;
             font-size: 3rem;
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
             letter-spacing: -1px;
+            margin-bottom: 1rem;
+            color: var(--text-main);
         }
 
         header p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-sub);
             font-weight: 300;
+            letter-spacing: 1px;
         }
 
-        /* 본문 그리드 레이아웃 */
-        .grid-container {
+        /* 콘텐츠 카드 그리드 (매거진 레이아웃) */
+        .posts {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
         }
 
-        .card {
+        .post-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 4px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-            border-color: var(--primary);
+        .post-card:hover {
+            border-color: #777;
+            transform: translateY(-3px);
         }
 
-        /* 비대칭 배치 (매거진 느낌) */
-        .card-about {
-            grid-column: span 12;
-            border-left: 5px solid var(--primary);
+        .date {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-sub);
+            margin-bottom: 0.8rem;
+            display: block;
         }
 
-        .card-book {
-            grid-column: span 6;
+        .post-card h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+            font-weight: 700;
         }
 
-        .card-travel {
-            grid-column: span 6;
-        }
-
-        .card-life {
-            grid-column: span 12;
-            border-left: 5px solid var(--accent);
-        }
-
-        @media (max-width: 768px) {
-            .card-book, .card-travel { grid-column: span 12; }
-            header h1 { font-size: 2.2rem; }
-        }
-
-        .card h2 {
-            font-family: 'Noto Serif KR', serif;
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .card h2::after {
-            content: '';
-            width: 30px;
-            height: 1px;
-            background: var(--border-color);
-        }
-
-        .card p {
+        .post-card p {
             color: var(--text-sub);
             font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            border-radius: 2px;
+        }
+
+        .btn:hover {
+            background: var(--text-main);
+            color: var(--bg-dark);
         }
 
         /* 푸터 */
         footer {
             text-align: center;
             padding: 4rem 0 1rem 0;
-            color: #8c857b;
+            color: var(--text-sub);
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
             margin-top: 4rem;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
+        <!-- 상단 헤더 타이틀 -->
         <header>
-            <span class="magazine-tag">A Personal Archive & Journal</span>
-            <h1>JULEE's SPACE</h1>
+            <h1>JULEE'S SPACE</h1>
             <p>시니어 라이프의 깊이, 세상과 소통하는 여정을 기록합니다.</p>
         </header>
 
-        <div class="grid-container">
-            <!-- About Section -->
-            <section class="card card-about">
+        <!-- 본문 글/아카이브 카드 섹션 -->
+        <main class="posts">
+            
+            <!-- About Me -->
+            article class="post-card">
+                <span class="date">Introduction</span>
                 <h2>About Me</h2>
                 <p>기술 현장을 누벼온 전문 경력을 바탕으로 명상심리학을 통해 삶의 성찰을 더합니다. 배려와 소통을 지향하며, 시니어 세대가 누릴 수 있는 풍요로운 일상의 지평을 탐구합니다.</p>
-            </section>
+            </article>
 
-            <!-- Book Section -->
-            <section class="card card-book">
-                <h2>도서 출간 소통</h2>
-                <p>준비 중인 도서에 담긴 생각과 철학. 독자 여러분과 깊이 있는 의견을 나누는 공간입니다.</p>
-            </section>
+            <!-- Book Publication -->
+            <article class="post-card">
+                <span class="date">Publication & Communication</span>
+                <h2>도서 출간 소통 공간</h2>
+                <p>준비 중인 도서에 담긴 생각과 철학을 나누고, 독자 여러분의 깊이 있는 의견과 소통을 기다리는 공간입니다.</p>
+            </article>
 
-            <!-- Travel Section -->
-            <section class="card card-travel">
+            <!-- Global Journey -->
+            <article class="post-card">
+                <span class="date">Global Journey</span>
                 <h2>글로벌 여행 아카이브</h2>
-                <p>북미 횡단, 남미, 터키, 그리고 유럽 캠핑카 여정까지. 세계를 누비며 체득한 생생한 기록들을 공유합니다.</p>
-            </section>
+                <p>북미 횡단, 남미, 터키, 그리고 다가오는 유럽 캠핑카 여정까지. 세계를 누비며 체득한 생생한 경험과 기록들을 담습니다.</p>
+            </article>
 
-            <!-- Life & Tech Section -->
-            <section class="card card-life">
+            <!-- Life & Tech -->
+            <article class="post-card">
+                <span class="date">Lifestyle & Tech</span>
                 <h2>라이프 & 신기술</h2>
-                <p>어반스케치, 색소폰 연주, AI 교육 등 일상의 예술적 즐거움과 새로운 기술의 조화를 실험하고 기록합니다.</p>
-            </section>
-        </div>
+                <p>어반스케치, 색소폰 연주, 그리고 AI 교육 등 일상의 예술적 즐거움과 새로운 기술의 조화를 실험하고 기록합니다.</p>
+            </article>
+
+        </main>
 
         <footer>
-            &copy; 2026 JULEE. All rights reserved.
+            &copy; 2026 JULEE. Design adapted from HTML5 UP Massively.
         </footer>
     </div>
 
